@@ -1,10 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
 import { ProjectCard } from './ProjectCard'
-import { ConfidentialModal } from '../confidential-modal'
-import { ProjectDetail } from '../project-detail'
-import { useProject } from '@/contexts/project-context'
 
 const featuredProjects = [
   {
@@ -154,115 +150,42 @@ const PROJECT_ORDER = [
 ]
 
 export function FeaturedProjects() {
-  const [openProject, setOpenProject] = useState(null)
-  const [isClosing, setIsClosing] = useState(false)
-  const [lastScrollPosition, setLastScrollPosition] = useState(0)
-  const { setProjectOpen, openProject: openProjectContext, setCloseProjectCallback } = useProject()
-
-  const handleProjectClick = (project) => {
-    setLastScrollPosition(window.scrollY || window.pageYOffset)
-    setOpenProject(project)
-    setIsClosing(false)
-    setProjectOpen(true)
-    openProjectContext(project.projectId)
-  }
-
-  const handleCloseProject = useCallback(() => {
-    setIsClosing(true)
-    setProjectOpen(false)
-
-    setTimeout(() => {
-      setOpenProject(null)
-      setIsClosing(false)
-      window.scrollTo({ top: lastScrollPosition, behavior: 'instant' })
-      document.body.style.overflow = 'auto'
-    }, 600)
-  }, [lastScrollPosition, setProjectOpen])
-
-  const handleLogoClick = useCallback(() => {
-    setIsClosing(true)
-    setProjectOpen(false)
-
-    setTimeout(() => {
-      setOpenProject(null)
-      setIsClosing(false)
-      document.body.style.overflow = 'auto'
-      document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })
-    }, 600)
-  }, [setProjectOpen])
-
-  const handleCloseProjectContext = useCallback(() => {
-    handleCloseProject()
-  }, [handleCloseProject])
-
-  useEffect(() => {
-    if (openProject) setCloseProjectCallback(() => handleCloseProject)
-    else setCloseProjectCallback(null)
-    return () => setCloseProjectCallback(null)
-  }, [openProject, setCloseProjectCallback, handleCloseProject])
-
   const orderedProjects = PROJECT_ORDER.map((id) =>
     featuredProjects.find((p) => p.projectId === id)
   ).filter(Boolean)
 
   return (
-    <>
-      <section className="relative z-[1] bg-transparent">
-        <div className="w-full">
+    <section className="relative z-[1] bg-transparent">
+      <div className="w-full">
+        {/* Línea superior */}
+        <div className="w-full h-px bg-[#CCCCCC]"></div>
 
-          {/* Línea superior */}
-          <div className="w-full h-px bg-[#CCCCCC]"></div>
+        {orderedProjects.map((project) => (
+          <div
+            key={project.id}
+            style={{
+              '--hover-color': project.hoverColor,
+              '--hover-text': project.textColorOnHover,
+            }}
+          >
+            <ProjectCard
+              id={project.id}
+              title={project.title}
+              image={project.image}
+              projectId={project.projectId}
+              description={project.description}
+              year={project.year}
+              country={project.country}
+              type={project.type}
+              tools={project.tools}
+              behanceUrl={project.behanceUrl}
+            />
 
-          {orderedProjects.map((project) => (
-            <div
-              key={project.id}
-              style={{
-                '--hover-color': project.hoverColor,
-                '--hover-text': project.textColorOnHover,
-              }}
-            >
-              <ProjectCard
-                id={project.id}
-                title={project.title}
-                image={project.image}
-                projectId={project.projectId}
-                description={project.description}
-                      year={project.year}
-                      country={project.country}
-                      type={project.type}
-                      tools={project.tools}
-                behanceUrl={project.behanceUrl}
-                      onProjectClick={() => handleProjectClick(project)}
-                    />
-
-              {/* Línea inferior */}
-              <div className="w-full h-px bg-[#CCCCCC]"></div>
-                  </div>
-          ))}
-
-              </div>
-      </section>
-
-      <ConfidentialModal isOpen={false} onClose={() => {}} />
-
-      {openProject && (
-        <ProjectDetail
-          projectId={openProject.projectId}
-          title={openProject.title}
-          description={openProject.description}
-          role={openProject.role}
-          year={openProject.year}
-          country={openProject.country}
-          tools={openProject.tools}
-          backgroundColor={openProject.backgroundColor}
-          status={openProject.status}
-          website={openProject.website}
-          isConfidential={openProject.isConfidential}
-          onClose={handleCloseProject}
-          onLogoClick={handleLogoClick}
-          isClosing={isClosing}
-        />
-      )}
-    </>
+            {/* Línea inferior */}
+            <div className="w-full h-px bg-[#CCCCCC]"></div>
+          </div>
+        ))}
+      </div>
+    </section>
   )
 }

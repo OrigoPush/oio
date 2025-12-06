@@ -148,3 +148,37 @@ export function isConfidentialProject(projectId: string): boolean {
   return CONFIDENTIAL_PROJECTS.includes(projectId as any)
 }
 
+/**
+ * Mapea projectId a rutas URL limpias
+ */
+export function getProjectRoute(projectId: string): string {
+  const routeMap: Record<string, string> = {
+    push: '/push',
+    catalonia: '/catalonia',
+    rank: '/rank-me-higher',
+    talengo: '/talengo',
+    bk: '/burger-king',
+    rbi: '/rbi',
+    santalucia: '/santalucia',
+    popeyes: '/popeyes',
+  }
+  return routeMap[projectId] || '/'
+}
+
+/**
+ * Obtiene projectId desde una ruta
+ */
+export function getProjectIdFromRoute(route: string): string | null {
+  const routeToId: Record<string, string> = {
+    '/push': 'push',
+    '/catalonia': 'catalonia',
+    '/rank-me-higher': 'rank',
+    '/talengo': 'talengo',
+    '/burger-king': 'bk',
+    '/rbi': 'rbi',
+    '/santalucia': 'santalucia',
+    '/popeyes': 'popeyes',
+  }
+  return routeToId[route] || null
+}
+

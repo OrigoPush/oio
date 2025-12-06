@@ -1,13 +1,15 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 import { cn } from '@/lib/utils'
-import { useProject } from '@/contexts/project-context'
 
-export function Navbar() {
+export default function Navbar() {
   const [isHeroVisible, setIsHeroVisible] = useState(true)
   const [menuOpen, setMenuOpen] = useState(false)
-  const { isProjectOpen, closeProject } = useProject()
+  const pathname = usePathname()
+  const isProjectPage = pathname !== '/'
 
   useEffect(() => {
     const hero = document.getElementById('hero')
@@ -50,9 +52,9 @@ export function Navbar() {
         <div className="w-full px-4 lg:px-6 pt-6 md:pt-6 flex justify-between items-start pointer-events-auto">
           
           {/* LOGO — sin filtro, solo blanco */}
-          {isProjectOpen ? (
-            <button
-              onClick={closeProject}
+          {isProjectPage ? (
+            <Link
+              href="/"
               className="cursor-pointer"
             >
               <img
@@ -61,7 +63,7 @@ export function Navbar() {
                 width={160}
                 className="object-contain w-24 sm:w-32 md:w-40"
               />
-            </button>
+            </Link>
           ) : (
           <a
             href="#hero"
@@ -78,13 +80,13 @@ export function Navbar() {
 
           {/* MENU */}
           <div className="flex flex-col items-end">
-            {isProjectOpen ? (
-              <button
-                onClick={closeProject}
+            {isProjectPage ? (
+              <Link
+                href="/"
                 className="text-white text-base sm:text-lg md:text-xl font-bold leading-none"
               >
                 cerrar
-              </button>
+              </Link>
             ) : isHeroVisible ? (
               <div className="flex flex-col items-end gap-1 sm:gap-1.5">
                 <a

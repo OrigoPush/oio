@@ -3,7 +3,7 @@ import { Space_Grotesk, Oooh_Baby, Manrope } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { TopTicker } from '@/components/TopTicker'
-import { Navbar } from '@/components/layout/Navbar'
+import Navbar from '@/components/layout/Navbar'
 import { ProjectProvider } from '@/contexts/project-context'
 
 const spaceGrotesk = Space_Grotesk({

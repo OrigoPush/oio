@@ -18,7 +18,6 @@ interface PushLayoutProps {
   backgroundColor: string
   frame7BackgroundImage?: string
   sticker?: React.ReactNode | null
-  onLogoClick?: () => void
   animationClasses?: string
 }
 
@@ -34,7 +33,6 @@ export function PushLayout({
   backgroundColor,
   frame7BackgroundImage,
   sticker,
-  onLogoClick,
   animationClasses = '',
 }: PushLayoutProps) {
   const location = useMemo(
@@ -44,7 +42,7 @@ export function PushLayout({
 
   return (
     <div
-      className={`fixed inset-0 z-[70] bg-white text-black overflow-y-auto overflow-x-hidden project-detail ${animationClasses}`}
+      className={`min-h-screen w-full bg-white text-black overflow-y-auto overflow-x-hidden project-detail ${animationClasses}`}
     >
       {/* HERO + BLOQUE MORADO */}
       <section className="relative w-full min-h-screen overflow-hidden">

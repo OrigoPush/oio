@@ -1,8 +1,10 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, forwardRef } from 'react'
+import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { ArrowUpRight } from 'lucide-react'
+import { getProjectRoute } from '@/lib/projects'
 
 interface ProjectCardProps {
   id: number
@@ -15,7 +17,6 @@ interface ProjectCardProps {
   type?: string
   tools?: string[]
   behanceUrl: string | null
-  onProjectClick?: () => void
 }
 
 export function ProjectCard({
@@ -27,7 +28,6 @@ export function ProjectCard({
   country,
   type,
   tools,
-  onProjectClick,
 }: ProjectCardProps) {
   const [isVisible, setIsVisible] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
@@ -90,14 +90,15 @@ export function ProjectCard({
     }
   }, [])
 
+  const projectRoute = projectId ? getProjectRoute(projectId) : '#'
+
   return (
-    <section
-      ref={cardRef}
-      onClick={onProjectClick}
+    <Link
+      href={projectRoute}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={cn(
-        'relative group w-full overflow-hidden cursor-pointer',
+        'relative group w-full overflow-hidden block',
         'flex flex-col',
         // Padding vertical que coincide con los márgenes laterales de LayoutContainer
         'py-4 lg:py-6',
@@ -105,12 +106,15 @@ export function ProjectCard({
         'lg:min-h-[380px]',
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[10px]',
         'transition-all duration-[700ms]',
-        forceWhiteHover && 'card-hover-white'
+        forceWhiteHover && 'card-hover-white',
+        'cursor-pointer'
       )}
       style={{
         transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
       }}
+      aria-label={`Ver proyecto ${title}`}
     >
+      <div ref={cardRef} className="absolute inset-0 pointer-events-none" />
       {/* Fondo de color en hover - cubre TODA la superficie de línea a línea */}
       <div className="absolute inset-0 z-0 bg-[var(--hover-color)] opacity-0 group-hover:opacity-100 transition-all duration-300" />
 
@@ -148,17 +152,17 @@ export function ProjectCard({
             </p>
           )}
 
-          {/* "View Case" solo en hover */}
+          {/* CTA siempre visible */}
           <div
             className={cn(
               'flex items-center gap-2 uppercase text-[10px] lg:text-xs tracking-wider font-medium font-manrope mt-3',
-              'opacity-0 -translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0',
+              'transition-all duration-300',
               'card-base-content',
+              'text-neutral-600',
               forceWhiteHover ? 'group-hover:!text-white' : forceDarkHover ? 'group-hover:!text-[#111111]' : 'group-hover:text-white'
             )}
-            style={{ transitionDelay: '100ms' }}
           >
-            <span>Caso de estudio</span>
+            <span>Caso de uso</span>
             <ArrowUpRight className={cn(
               'w-3 h-3 lg:w-4 lg:h-4 transition-all duration-300',
               forceWhiteHover ? 'group-hover:!text-white group-hover:!stroke-white' : forceDarkHover ? 'group-hover:!text-[#111111] group-hover:!stroke-[#111111]' : 'group-hover:text-white'
@@ -276,6 +280,6 @@ export function ProjectCard({
           ) : null}
         </div>
       </div>
-    </section>
+    </Link>
   )
 }
