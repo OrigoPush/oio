@@ -22,7 +22,6 @@ interface DefaultCarouselLayoutProps {
   backgroundColor: string
   status?: string
   frames: Frame[]
-  onLogoClick?: () => void
   animationClasses: string
   backgroundImage?: string
 }
@@ -38,7 +37,6 @@ export function DefaultCarouselLayout({
   backgroundColor,
   status,
   frames,
-  onLogoClick,
   animationClasses,
   backgroundImage,
 }: DefaultCarouselLayoutProps) {
@@ -52,7 +50,7 @@ export function DefaultCarouselLayout({
 
   return (
     <div
-      className={`fixed inset-0 z-[80] overflow-hidden ${animationClasses}`}
+      className={`min-h-screen w-full overflow-hidden ${animationClasses}`}
       style={{ backgroundColor: finalBackgroundColor }}
     >
       {/* Carousel Container - Horizontal scroll with snap */}
@@ -79,7 +77,6 @@ export function DefaultCarouselLayout({
                   backgroundColor={finalBackgroundColor}
                   textColor={textColor}
                   borderColor={borderColor}
-                  onLogoClick={onLogoClick}
                 />
               </div>
             )

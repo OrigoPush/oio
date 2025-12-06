@@ -15,10 +15,9 @@ interface TalengoLayoutProps {
     tools?: string[]
     website?: string
     backgroundColor?: string
-    frame7BackgroundImage?: string
-    sticker?: React.ReactNode | null
-    onLogoClick?: () => void
-    animationClasses?: string
+  frame7BackgroundImage?: string
+  sticker?: React.ReactNode | null
+  animationClasses?: string
 }
 
 export function TalengoLayout({
@@ -30,11 +29,10 @@ export function TalengoLayout({
     country,
     tools,
     website,
-    backgroundColor = '#84BDC9',
-    frame7BackgroundImage,
-    sticker,
-    onLogoClick,
-    animationClasses = '',
+  backgroundColor = '#84BDC9',
+  frame7BackgroundImage,
+  sticker,
+  animationClasses = '',
 }: TalengoLayoutProps) {
     const location = useMemo(
         () => [country, year].filter(Boolean).join(' · '),
@@ -43,7 +41,7 @@ export function TalengoLayout({
 
     return (
         <div
-            className={`fixed inset-0 z-[70] bg-white text-black overflow-y-auto overflow-x-hidden project-detail ${animationClasses}`}
+            className={`min-h-screen w-full bg-white text-black overflow-y-auto overflow-x-hidden project-detail ${animationClasses}`}
         >
             {/* HERO + BLOQUE COLOR */}
             <section className="relative w-full min-h-screen overflow-hidden">

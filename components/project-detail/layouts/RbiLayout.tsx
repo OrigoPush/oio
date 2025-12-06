@@ -15,10 +15,9 @@ interface RbiLayoutProps {
     tools?: string[]
     website?: string
     backgroundColor?: string
-    frame7BackgroundImage?: string
-    sticker?: React.ReactNode | null
-    onLogoClick?: () => void
-    animationClasses?: string
+  frame7BackgroundImage?: string
+  sticker?: React.ReactNode | null
+  animationClasses?: string
 }
 
 export function RbiLayout({
@@ -30,11 +29,10 @@ export function RbiLayout({
     country,
     tools,
     website,
-    backgroundColor = '#AE2825',
-    frame7BackgroundImage,
-    sticker,
-    onLogoClick,
-    animationClasses = '',
+  backgroundColor = '#AE2825',
+  frame7BackgroundImage,
+  sticker,
+  animationClasses = '',
 }: RbiLayoutProps) {
     const location = useMemo(
         () => [country, year].filter(Boolean).join(' · '),
@@ -43,7 +41,7 @@ export function RbiLayout({
 
     return (
         <div
-            className={`fixed inset-0 z-[70] bg-white text-black overflow-y-auto overflow-x-hidden project-detail ${animationClasses}`}
+            className={`min-h-screen w-full bg-white text-black overflow-y-auto overflow-x-hidden project-detail ${animationClasses}`}
         >
             {/* HERO + BLOQUE COLOR */}
             <section className="relative w-full min-h-screen overflow-hidden">
