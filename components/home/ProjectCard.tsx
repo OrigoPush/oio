@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState, forwardRef } from 'react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
-import { ArrowUpRight } from 'lucide-react'
 import { getProjectRoute } from '@/lib/projects'
 
 interface ProjectCardProps {
@@ -70,12 +69,12 @@ export function ProjectCard({
     projectId && isHovered && hoverLogos[projectId]
       ? hoverLogos[projectId]
       : projectId
-      ? getLandingLogo(projectId)
-      : image
+        ? getLandingLogo(projectId)
+        : image
 
   // Forzar textos blancos en hover solo para estos proyectos
   const forceWhiteHover = ['push', 'rbi', 'santalucia'].includes(projectId || '')
-  
+
   // Forzar textos oscuros en hover solo para estos proyectos
   const forceDarkHover = ['catalonia', 'bk', 'rank', 'rmh', 'talengo'].includes(projectId || '')
 
@@ -93,12 +92,11 @@ export function ProjectCard({
   const projectRoute = projectId ? getProjectRoute(projectId) : '#'
 
   return (
-    <Link
-      href={projectRoute}
+    <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={cn(
-        'relative group w-full overflow-hidden block',
+        'relative group w-full overflow-hidden',
         'flex flex-col',
         // Padding vertical que coincide con los márgenes laterales de LayoutContainer
         'py-4 lg:py-6',
@@ -106,20 +104,18 @@ export function ProjectCard({
         'lg:min-h-[380px]',
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[10px]',
         'transition-all duration-[700ms]',
-        forceWhiteHover && 'card-hover-white',
-        'cursor-pointer'
+        forceWhiteHover && 'card-hover-white'
       )}
       style={{
         transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
       }}
-      aria-label={`Ver proyecto ${title}`}
     >
       <div ref={cardRef} className="absolute inset-0 pointer-events-none" />
       {/* Fondo de color en hover - cubre TODA la superficie de línea a línea */}
       <div className="absolute inset-0 z-0 bg-[var(--hover-color)] opacity-0 group-hover:opacity-100 transition-all duration-300" />
 
       {/* CONTENIDO: estructura balanceada */}
-      <div 
+      <div
         className={cn(
           "relative z-10 flex flex-1 flex-col justify-between px-4 lg:px-6",
           forceWhiteHover && "[&_*]:group-hover:!text-white [&_*]:group-hover:![stroke:white]",
@@ -152,22 +148,37 @@ export function ProjectCard({
             </p>
           )}
 
-          {/* CTA siempre visible */}
-          <div
+          <Link
+            href={projectRoute}
             className={cn(
-              'flex items-center gap-2 uppercase text-[10px] lg:text-xs tracking-wider font-medium font-manrope mt-3',
+              'relative flex items-center gap-2 uppercase tracking-wide font-extrabold font-manrope',
+              // Tamaños
+              'text-base sm:text-lg md:text-xl lg:text-2xl',
+              // Alineación
+              'justify-start',
+              // Padding
+              'mt-4 py-1 px-2 -mx-2',
+              // Transición
               'transition-all duration-300',
               'card-base-content',
-              'text-neutral-600',
-              forceWhiteHover ? 'group-hover:!text-white' : forceDarkHover ? 'group-hover:!text-[#111111]' : 'group-hover:text-white'
+              'text-neutral-600 cursor-pointer',
+
+              // Hover
+              forceWhiteHover
+                ? 'group-hover:!text-white'
+                : forceDarkHover
+                  ? 'group-hover:!text-[#111111]'
+                  : 'group-hover:text-white'
             )}
+            aria-label={`Ver proyecto ${title}`}
           >
-            <span>Caso de uso</span>
-            <ArrowUpRight className={cn(
-              'w-3 h-3 lg:w-4 lg:h-4 transition-all duration-300',
-              forceWhiteHover ? 'group-hover:!text-white group-hover:!stroke-white' : forceDarkHover ? 'group-hover:!text-[#111111] group-hover:!stroke-[#111111]' : 'group-hover:text-white'
-            )} />
-          </div>
+            {/* CTA forzado a peso 900 */}
+            <span style={{ fontWeight: 900 }}>Ver</span>
+            <span className="text-[1.1em] leading-none">›</span>
+          </Link>
+
+
+
         </div>
 
         {/* Separación entre bloque A y B: 32px */}
@@ -280,6 +291,6 @@ export function ProjectCard({
           ) : null}
         </div>
       </div>
-    </Link>
+    </div>
   )
 }

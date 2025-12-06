@@ -98,14 +98,16 @@ export function DefaultCarouselLayout({
       </div>
 
       {/* Carousel Navigation Arrows */}
-      <CarouselArrows
-        onPrevious={handlePrevious}
-        onNext={handleNext}
-        canGoPrevious={canGoPrevious}
-        canGoNext={canGoNext}
-        currentFrame={currentFrame}
-        totalFrames={totalFrames}
-      />
+      {projectId !== 'santalucia' && (
+        <CarouselArrows
+          onPrevious={handlePrevious}
+          onNext={handleNext}
+          canGoPrevious={canGoPrevious}
+          canGoNext={canGoNext}
+          currentFrame={currentFrame}
+          totalFrames={totalFrames}
+        />
+      )}
 
       {/* Hide scrollbar for webkit browsers */}
       <style jsx>{`
