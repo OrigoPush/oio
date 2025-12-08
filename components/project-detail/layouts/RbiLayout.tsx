@@ -87,9 +87,9 @@ export function RbiLayout({
 
                 {/* BLOQUE COLOR */}
                 <div className="w-full" style={{ backgroundColor }}>
-                    <LayoutContainer className="pt-12 pb-[160px]">
+                    <LayoutContainer className="pt-10 pb-14 md:pt-16 md:pb-24">
                         {/* METADATA */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-[80px]">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8 mb-10 md:mb-20">
                             <div>
                                 <p className="uppercase tracking-[0.18em] text-[10px] text-white/80 mb-2">
                                     Info proyecto
@@ -131,7 +131,7 @@ export function RbiLayout({
                         </div>
 
                         {/* SCROLL INDICATOR */}
-                        <div className="flex justify-center mb-[120px]">
+                        <div className="flex justify-center mb-10 md:mb-24">
                             <div className="text-center">
                                 <p className="text-white/70 text-[10px] uppercase tracking-[0.18em]">
                                     Scroll
@@ -141,17 +141,17 @@ export function RbiLayout({
                         </div>
 
                         {/* TÍTULO PRINCIPAL */}
-                        <h1 className="text-white text-[64px] md:text-[80px] lg:text-[96px] leading-[0.95] font-normal mb-[48px] max-w-[1100px]">
+                        <h1 className="text-white text-[64px] md:text-[80px] lg:text-[96px] leading-[0.95] font-normal mb-8 md:mb-12 max-w-[1100px]">
                             {title}
                         </h1>
 
                         {/* SUBTÍTULO */}
-                        <p className="text-white/80 text-[18px] md:text-[20px] leading-[1.5] max-w-[640px] mb-[80px]">
+                        <p className="text-white/80 text-[18px] md:text-[20px] leading-[1.5] max-w-[640px] mb-10 md:mb-16">
                             {description}
                         </p>
 
                         {/* MOCKUP PRINCIPAL */}
-                        <div className="flex justify-center mb-[80px] md:mb-[120px]">
+                        <div className="flex justify-center mb-10 md:mb-24">
                             <div className="w-full max-w-4xl relative">
                                 <Image
                                     src="/rbi_01.png"
@@ -181,7 +181,7 @@ export function RbiLayout({
                 className="w-full"
                 style={{ backgroundColor }}
             >
-                <LayoutContainer className="py-24 md:py-40">
+                <LayoutContainer className="py-14 md:py-24">
                     <div className="max-w-3xl mx-auto text-center">
 
                         {/* LABEL */}
@@ -198,7 +198,7 @@ export function RbiLayout({
                         </div>
 
                         {/* STICKER — NUEVO */}
-                        <div className="flex justify-center mb-8">
+                        <div className="flex justify-center mb-10">
                             <Image
                                 src="/ms_sticker_2.png"
                                 alt="Sticker"
@@ -233,4 +233,3 @@ export function RbiLayout({
         </div >
     )
 }
-

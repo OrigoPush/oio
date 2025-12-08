@@ -50,7 +50,7 @@ export function DefaultCarouselLayout({
 
   return (
     <div
-      className={`min-h-screen w-full overflow-hidden ${animationClasses}`}
+      className={`min-h-[80vh] md:min-h-screen w-full overflow-hidden ${animationClasses}`}
       style={{ backgroundColor: finalBackgroundColor }}
     >
       {/* Carousel Container - Horizontal scroll with snap */}
@@ -118,4 +118,3 @@ export function DefaultCarouselLayout({
     </div>
   )
 }
-

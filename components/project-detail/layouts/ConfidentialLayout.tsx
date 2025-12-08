@@ -53,12 +53,12 @@ export function ConfidentialLayout({
       style={{ backgroundColor: finalBackgroundColor }}
     >
       {/* Content block - bottom left */}
-      <div className="w-full h-screen flex items-end relative">
-        <LayoutContainer className="pb-12 sm:pb-16 md:pb-20 relative">
+      <div className="w-full min-h-screen flex items-end relative">
+        <LayoutContainer className="pt-12 pb-10 md:pb-20 relative">
           {/* Sticker positioned absolutely - right side, vertically centered */}
           {sticker && <Sticker src={sticker} />}
 
-          <div className="w-full flex flex-col items-start space-y-6 sm:space-y-8 md:space-y-10">
+          <div className="w-full flex flex-col items-start space-y-5 sm:space-y-8 md:space-y-10">
             {/* LOGO */}
             {projectId === 'bk' ? (
               <div className="flex items-center gap-3 sm:gap-4">
@@ -90,7 +90,7 @@ export function ConfidentialLayout({
             )}
 
             {/* BLOQUE DE INFO */}
-            <div className="flex flex-col space-y-6 sm:space-y-8 md:space-y-10 text-left w-full" style={{ color: textColor }}>
+            <div className="flex flex-col space-y-5 sm:space-y-8 md:space-y-10 text-left w-full" style={{ color: textColor }}>
               {/* BLOQUE LOCALIZACIÓN */}
               {locationString && (
                 <div className="flex flex-col space-y-2">
@@ -154,4 +154,3 @@ export function ConfidentialLayout({
     </div>
   )
 }
-

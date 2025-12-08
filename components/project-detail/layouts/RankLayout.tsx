@@ -94,9 +94,9 @@ export function RankLayout({
 
         {/* BLOQUE COLOR */}
         <div className="w-full" style={{ backgroundColor: brandColor }}>
-          <LayoutContainer className="pt-12 pb-[160px]">
+          <LayoutContainer className="pt-10 pb-14 md:pt-16 md:pb-24">
             {/* METADATA */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-[80px]">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8 mb-10 md:mb-20">
               <div>
                 <p className="uppercase tracking-[0.18em] text-[10px] text-[#1A1A1A]/70 mb-2">
                   Project Info
@@ -138,7 +138,7 @@ export function RankLayout({
             </div>
 
             {/* SCROLL INDICATOR */}
-            <div className="flex justify-center mb-[120px]">
+            <div className="flex justify-center mb-10 md:mb-24">
               <div className="text-center">
                 <p className="text-[#1A1A1A]/70 text-[10px] uppercase tracking-[0.18em]">
                   Scroll
@@ -148,16 +148,16 @@ export function RankLayout({
             </div>
 
             {/* TÍTULO PRINCIPAL */}
-            <h1 className="text-[#1A1A1A] text-[64px] md:text-[80px] lg:text-[96px] leading-[0.95] font-normal mb-[48px] max-w-[1100px]">
+            <h1 className="text-[#1A1A1A] text-[64px] md:text-[80px] lg:text-[96px] leading-[0.95] font-normal mb-8 md:mb-12 max-w-[1100px]">
               {title}
             </h1>
 
             {/* SUBTÍTULO */}
-            <p className="text-[#1A1A1A]/80 text-[18px] md:text-[20px] leading-[1.5] max-w-[640px] mb-[80px]">
+            <p className="text-[#1A1A1A]/80 text-[18px] md:text-[20px] leading-[1.5] max-w-[640px] mb-10 md:mb-16">
               {description}
             </p>
 
-            <div className="flex justify-center mb-[80px] md:mb-[120px]">
+            <div className="flex justify-center mb-10 md:mb-24">
               <div className="w-full max-w-4xl">
                 <Image
                   src="/rmh_01.png"
@@ -170,7 +170,7 @@ export function RankLayout({
             </div>
 
             {/* IMAGEN 2 */}
-            <div className="flex justify-center mb-[80px] md:mb-[120px]">
+            <div className="flex justify-center mb-10 md:mb-24">
               <div className="w-full max-w-4xl">
                 <Image
                   src="/rmh_03.png"
@@ -186,23 +186,23 @@ export function RankLayout({
       </section>
 
       {/* BLOQUE EDITORIAL */}
-      <section className="w-full bg-[#F5F5F5] py-[160px]">
+      <section className="w-full bg-[#F5F5F5] py-14 md:py-24">
         <LayoutContainer>
           {/* Título editorial */}
-          <h2 className="text-black font-semibold leading-[1.05] text-[40px] md:text-[56px] max-w-3xl mb-[48px]">
+          <h2 className="text-black font-semibold leading-[1.05] text-[40px] md:text-[56px] max-w-3xl mb-8 md:mb-12">
             Diseñando experiencias digitales que elevan la marca.
           </h2>
 
           {/* Subtítulo editorial */}
-          <p className="text-black/70 text-[18px] leading-[1.5] max-w-2xl mb-[80px]">
+          <p className="text-black/70 text-[18px] leading-[1.5] max-w-2xl mb-10 md:mb-16">
             Desde la arquitectura de información hasta la implementación visual,
             construimos una experiencia web que refleja la identidad y los valores
             de Rank Me Higher con claridad y resultados medibles.
           </p>
 
           {/* GRID 1 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-[80px]">
-          <div className="flex justify-center mb-[80px] md:mb-[120px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mb-10 md:mb-16">
+            <div className="flex justify-center mb-10 md:mb-0">
               <div className="w-full max-w-4xl">
                 <Image
                   src="/rmh_02.png"
@@ -213,7 +213,7 @@ export function RankLayout({
                 />
               </div>
             </div>
-            <div className="flex justify-center mb-[80px] md:mb-[120px]">
+            <div className="flex justify-center mb-10 md:mb-0">
               <div className="w-full max-w-4xl">
                 <Image
                   src="/rmh_04.png"
@@ -224,22 +224,22 @@ export function RankLayout({
                 />
               </div>
             </div>
-        </div>
+          </div>
 
         </LayoutContainer>
       </section>
 
       {/* BLOQUE CONTACTO */}
-      <section className="w-full bg-black text-white py-[160px]">
+      <section className="w-full bg-black text-white py-14 md:py-24">
         <LayoutContainer>
           <div className="flex flex-col items-start">
             {/* Título */}
-            <h2 className="text-white font-semibold leading-[0.9] text-[54px] md:text-[110px] tracking-tight mb-[48px]">
+            <h2 className="text-white font-semibold leading-[0.9] text-[54px] md:text-[110px] tracking-tight mb-8 md:mb-12">
               ¿Quieres que<br />trabajemos<br />juntos?
             </h2>
 
             {/* Subtítulo */}
-            <p className="text-white/70 text-[18px] md:text-[20px] leading-[1.5] max-w-2xl mb-[48px]">
+            <p className="text-white/70 text-[18px] md:text-[20px] leading-[1.5] max-w-2xl mb-8 md:mb-12">
             Estrategia, funcionalidad y experiencia para equipos que buscan impacto.
             </p>
 

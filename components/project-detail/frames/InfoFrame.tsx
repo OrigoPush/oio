@@ -43,17 +43,17 @@ export function InfoFrame({
 
   return (
     <div
-      className={`w-full min-h-screen flex items-end ${className}`}
+      className={`w-full min-h-[80vh] md:min-h-screen flex items-center md:items-end ${className}`}
       style={{ backgroundColor }}
     >
-      <LayoutContainer className="w-full flex items-end pb-12 sm:pb-16 md:pb-20 relative">
+      <LayoutContainer className="w-full flex items-center md:items-end pt-10 pb-14 md:pb-20 relative">
         {/* Sticker positioned absolutely - right side, vertically centered */}
         {sticker && <Sticker src={sticker} />}
 
-        <div className="w-full flex flex-col items-start space-y-6 sm:space-y-8 md:space-y-10">
+        <div className="w-full flex flex-col items-start space-y-4 sm:space-y-6 md:space-y-8">
           {/* LOGO */}
           {projectId === 'bk' ? (
-            <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6 md:mb-10">
+            <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5 md:mb-8">
               <img
                 src={getProjectLogo(projectId)}
                 alt={`${title} logo`}
@@ -71,13 +71,13 @@ export function InfoFrame({
             <img
               src={getProjectLogo(projectId)}
               alt={`${title} logo`}
-              className={`${getLogoHeight(projectId)} w-auto mb-4 sm:mb-6 md:mb-10 opacity-90 cursor-pointer hover:opacity-100 transition`}
+              className={`${getLogoHeight(projectId)} w-auto mb-4 sm:mb-5 md:mb-8 opacity-90 cursor-pointer hover:opacity-100 transition`}
               onClick={handleLogoClick}
             />
           )}
 
           {/* BLOQUE DE INFO */}
-          <div className="flex flex-col space-y-6 sm:space-y-8 md:space-y-10 text-left w-full" style={{ color: textColor }}>
+          <div className="flex flex-col space-y-4 sm:space-y-6 md:space-y-8 text-left w-full" style={{ color: textColor }}>
             {/* BLOQUE LOCALIZACIÓN */}
             {locationString && (
               <div className="flex flex-col space-y-2">
@@ -140,4 +140,3 @@ export function InfoFrame({
     </div>
   )
 }
-

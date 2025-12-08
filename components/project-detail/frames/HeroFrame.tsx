@@ -18,7 +18,7 @@ export function HeroFrame({
   heroImage,
 }: HeroFrameProps) {
   return (
-    <div className="min-w-full w-screen h-screen flex-shrink-0 snap-start relative flex items-center justify-center">
+    <div className="min-w-full w-screen min-h-[80vh] md:min-h-screen flex-shrink-0 snap-start relative flex items-center justify-center py-10">
       {/* Fullscreen background image */}
       <div className="absolute inset-0 w-full h-full">
         <img
@@ -29,7 +29,7 @@ export function HeroFrame({
       </div>
 
       {/* Content overlay */}
-      <LayoutContainer className="relative z-10 w-full flex flex-col items-center justify-center space-y-6 sm:space-y-8">
+      <LayoutContainer className="relative z-10 w-full flex flex-col items-center justify-center space-y-4 sm:space-y-6 md:space-y-8">
         {/* Logo centered - larger size for hero frame */}
         <img
           src={getProjectLogo(projectId)}
@@ -45,4 +45,3 @@ export function HeroFrame({
     </div>
   )
 }
-

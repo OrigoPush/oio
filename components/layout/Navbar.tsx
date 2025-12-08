@@ -66,11 +66,11 @@ export default function Navbar() {
               className="cursor-pointer"
             >
               <img
-                src="/logo_i0_mask.svg"
+                src="/logo_oi0_mask.svg"
                 alt="logo"
-                width={160}
-                className="object-contain w-24 sm:w-32 md:w-40"
+                className="object-contain w-10 sm:w-12 md:w-14"
               />
+
             </Link>
           ) : (
             <a
@@ -78,11 +78,11 @@ export default function Navbar() {
               onClick={(e) => { e.preventDefault(); scrollTo('hero') }}
             >
               <img
-                src="/logo_i0_mask.svg"
+                src="/logo_oi0_mask.svg"
                 alt="logo"
-                width={160}
-                className="object-contain w-24 sm:w-32 md:w-40"
+                className="object-contain w-12 sm:w-14 md:w-16"
               />
+
             </a>
           )}
 
