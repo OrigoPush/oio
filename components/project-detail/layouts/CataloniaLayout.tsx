@@ -257,7 +257,7 @@ export function CataloniaLayout({
               href="mailto:rodrigo@oi0.co"
               className="text-[16px] md:text-[18px] uppercase tracking-[0.18em] text-white/80 hover:text-white transition-colors"
             >
-              rodrigo@oio.com
+              rosanchez92@gmail.com
             </a>
           </div>
         </LayoutContainer>

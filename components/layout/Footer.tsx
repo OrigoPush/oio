@@ -18,7 +18,7 @@ export function Footer() {
             href="mailto:hello@rodrigosanchez.design"
             className="text-sm sm:text-base lg:text-lg text-[rgba(255,255,255,0.65)] hover:text-white transition-colors duration-300 break-all"
           >
-            rodrigo@oio.com
+            rosanchez92@gmail.com
           </a>
 
           <a

@@ -223,7 +223,7 @@ export function RbiLayout({
                             href="mailto:rodrigo@oi0.co"
                             className="inline-block text-[15px] md:text-[17px] font-medium underline decoration-[2px] decoration-white/40 underline-offset-4 hover:opacity-70 transition-opacity text-white"
                         >
-                            rodrigo@oio.com
+                            rosanchez92@gmail.com
                         </a>
 
                     </div>
