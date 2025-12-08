@@ -27,34 +27,27 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: 'Rodrigo Sánchez — Product Designer',
   description: 'Product Designer specializing in UX/UI, Web, Systems, XR & AI',
-  generator: 'v0.app',
+
   icons: {
     icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
+      { url: '/icon.svg', type: 'image/svg+xml' }, // favicon principal
     ],
-    apple: '/apple-icon.png',
+    apple: '/icon.png', // si quieres un PNG para Apple, sino bórralo
+  },
+
+  openGraph: {
+    title: 'Rodrigo Sánchez — Product Designer',
+    description: 'Portfolio de diseño digital, producto, UX/UI, XR y sistemas',
+    images: ['/og-image.png'], // si aún no lo tienes, puedo generarlo
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${spaceGrotesk.variable} ${ooohBaby.variable} ${manrope.variable} font-sans antialiased`}>
+      <body
+        className={`${spaceGrotesk.variable} ${ooohBaby.variable} ${manrope.variable} font-sans antialiased`}
+      >
         <ProjectProvider>
           <TopTicker />
           <Navbar />
