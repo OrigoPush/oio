@@ -60,31 +60,38 @@ export default function Navbar() {
         <div className="w-full px-4 lg:px-6 pt-6 md:pt-6 flex justify-between items-start pointer-events-auto">
 
           {/* LOGO — sin filtro, solo blanco */}
-          {isProjectPage ? (
-            <Link
-              href="/"
-              className="cursor-pointer"
-            >
-              <img
-                src="/logo_oi0_mask.svg"
-                alt="logo"
-                className="object-contain w-10 sm:w-12 md:w-14"
-              />
-
-            </Link>
-          ) : (
-            <a
-              href="#hero"
-              onClick={(e) => { e.preventDefault(); scrollTo('hero') }}
-            >
-              <img
-                src="/logo_oi0_mask.svg"
-                alt="logo"
-                className="object-contain w-12 sm:w-14 md:w-16"
-              />
-
-            </a>
-          )}
+          <div
+            className={cn(
+              'transition-opacity duration-300',
+              !isProjectPage && isHeroVisible
+                ? 'opacity-0 pointer-events-none'
+                : 'opacity-100 pointer-events-auto'
+            )}
+          >
+            {isProjectPage ? (
+              <Link href="/" className="cursor-pointer">
+                <img
+                  src="/logo_oi0_mask.svg"
+                  alt="logo"
+                  className="object-contain w-10 sm:w-12 md:w-14"
+                />
+              </Link>
+            ) : (
+              <a
+                href="#hero"
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollTo('hero')
+                }}
+              >
+                <img
+                  src="/logo_oi0_mask.svg"
+                  alt="logo"
+                  className="object-contain w-12 sm:w-14 md:w-16"
+                />
+              </a>
+            )}
+          </div>
 
           {/* MENU */}
           <div className="flex flex-col items-end">
