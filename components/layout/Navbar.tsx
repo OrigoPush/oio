@@ -14,17 +14,38 @@ export default function Navbar() {
   const isMobile = useIsMobile()
 
   useEffect(() => {
-    const hero = document.getElementById('hero')
-    if (!hero) return
+    if (pathname !== '/') {
+      setIsHeroVisible(false)
+      return
+    }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsHeroVisible(entry.isIntersecting),
-      { threshold: 0 }
-    )
+    setIsHeroVisible(true)
 
-    observer.observe(hero)
-    return () => observer.disconnect()
-  }, [])
+    let observer: IntersectionObserver | null = null
+    let rafId: number | null = null
+
+    const setupObserver = () => {
+      const hero = document.getElementById('hero')
+      if (!hero) {
+        rafId = requestAnimationFrame(setupObserver)
+        return
+      }
+
+      observer = new IntersectionObserver(
+        ([entry]) => setIsHeroVisible(entry.isIntersecting),
+        { threshold: 0 }
+      )
+
+      observer.observe(hero)
+    }
+
+    setupObserver()
+
+    return () => {
+      if (observer) observer.disconnect()
+      if (rafId) cancelAnimationFrame(rafId)
+    }
+  }, [pathname])
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
