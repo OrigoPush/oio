@@ -30,8 +30,8 @@ export function Hero() {
               {/* NOMBRE */}
               <h1
                 className="
-              text-white font-manrope font-bold
-              text-[11vw] sm:text-[60px] md:text-[80px] lg:text-[96px]
+              text-white/80 font-manrope font-bold
+              text-[11vw] sm:text-[60px] md:text-[80px] lg:text-[80px]
               leading-[0.92] tracking-[-0.04em]
             "
               >

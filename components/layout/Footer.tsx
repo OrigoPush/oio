@@ -8,7 +8,7 @@ export function Footer() {
       <LayoutContainer className="py-12 sm:py-16 md:py-24 lg:py-32">
 
         {/* TÍTULO */}
-        <h3 className="font-manrope font-bold tracking-[-0.02em] text-white text-xl sm:text-2xl md:text-[32px] lg:text-[42px] xl:text-[56px] mb-6 sm:mb-8">
+        <h3 className="font-manrope font-bold tracking-[-0.02em] text-white/80 text-xl sm:text-2xl md:text-[32px] lg:text-[42px] xl:text-[56px] mb-6 sm:mb-8">
           Let's build<br />something meaningful.
         </h3>
 

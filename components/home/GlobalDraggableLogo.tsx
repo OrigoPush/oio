@@ -49,7 +49,7 @@ export function GlobalDraggableLogo({ containerRef }: GlobalDraggableLogoProps) 
       }}
     >
       <img
-        src="/logo_oi0_mask.svg"
+        src="/logo_oi0_mask_navidad.svg"
         alt="Logo MASK"
         draggable={false}
         className="w-full h-auto"
