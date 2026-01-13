@@ -110,7 +110,7 @@ export function GlobalDraggableLogo({ containerRef }: GlobalDraggableLogoProps) 
     >
       <motion.div animate={hintControls} initial={{ y: 0 }}>
         <img
-          src="/logo_oi0_mask_navidad.svg"
+          src="/logo_oi0_mask.svg"
           alt="Logo MASK"
           draggable={false}
           className="w-full h-auto"
